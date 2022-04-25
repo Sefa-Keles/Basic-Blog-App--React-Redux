@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux';
 import AppRouter from './routers/AppRouter';
 import "./App.css"
 import reportWebVitals from './reportWebVitals';
@@ -14,13 +15,14 @@ store.subscribe(() => {
 
 const blog1 = store.dispatch(addBlogAction({title:"blog title 1", description: "blog description 1", dateAdded: "blog dateAdded 1"}))
 const blog2 = store.dispatch(addBlogAction({title:"blog title 2", description: "blog description 2", dateAdded: "blog dateAdded 2"}))
-
 store.dispatch(removeBlogAction({id: blog1.blog.id}))
-store.dispatch(editBlogAction(blog2.blog.id, {title: "blog 2 title", description: "blog description 2", dateAdded: "blog 2 dateAdded"}))
+store.dispatch(editBlogAction(blog2.blog.id, {title: "updated blog 2 title", description: "updated blog description 2", dateAdded: " updated blog 2 dateAdded"}))
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <AppRouter />
+    <Provider  store={store}>
+        <AppRouter/>
+    </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function
