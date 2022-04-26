@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <header>
         <h1>BLOG APP</h1>
-        <NavLink to="/" activeClassName="active">HOME | </NavLink>
+        <NavLink exact to="/" activeClassName="active">HOME | </NavLink>
         <NavLink to="/blogs" activeClassName="active">BLOG | </NavLink>
         <NavLink to="/create" activeClassName="active">CREATE | </NavLink>
         <NavLink to="/contact" activeClassName="active">CONTACT</NavLink>
