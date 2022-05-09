@@ -6,7 +6,7 @@ import AddBlogPage from '../components/AddBlogPage'
 import ContactPage from '../components/ContactPage'
 import Header from '../components/Header'
 import NotFoundPage from '../components/NotFoundPage'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route  } from 'react-router-dom'
 import EditBlogPage from '../components/EditBlogPage'
 
 const AppRouter = () => {
@@ -14,15 +14,15 @@ const AppRouter = () => {
     <BrowserRouter>
         <div>
             <Header></Header>
-            <Switch>
-                <Route exact path = '/' component={HomePage}/>
-                <Route exact path = '/blogs' component={BlogListPage}/>
-                <Route exact path = '/create' component={AddBlogPage}/>
-                <Route exact path = '/edit/:id' component={EditBlogPage}/>
-                <Route path = '/blogs/:id' component={BlogDetailsPage}/>
-                <Route path = '/contact' component={ContactPage}/>
-                <Route component={NotFoundPage}/>
-            </Switch>
+            <Routes>
+                <Route path = '/' element={<HomePage/>}/>
+                <Route path = '/blogs' element={<BlogListPage/>}/>
+                <Route path = '/create' element={<AddBlogPage/>}/>
+                <Route path = '/edit/:id' element={<EditBlogPage/>}/>
+                <Route path = '/blogs/:id' element={<BlogDetailsPage/>}/>
+                <Route path = '/contact' element={<ContactPage/>}/>
+                <Route element={<NotFoundPage/>}/>
+            </Routes>
         </div>
     </BrowserRouter>
   )

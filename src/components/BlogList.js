@@ -1,12 +1,17 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import { useSelector } from 'react-redux'
 import BlogListItem from './BlogListItem'
 
- const BlogList = (props) => {
+ const BlogList = () => {
+     const blogCollection = useSelector((state) => {
+        return {
+            blogs:state.blogs
+        }
+     });
   return (
     <ul>
         {
-            props.blogs.map(blog => {
+            blogCollection.blogs.map(blog => {
                 return <BlogListItem key={blog.id} {...blog}/>
             })
         }
@@ -14,10 +19,5 @@ import BlogListItem from './BlogListItem'
   )
 }
 
-const mapStateToProps = (state) => {
-    return {
-        blogs:state.blogs
-    }
-}
 
-export default connect(mapStateToProps)(BlogList)
+export default BlogList

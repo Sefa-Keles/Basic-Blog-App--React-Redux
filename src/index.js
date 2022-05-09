@@ -15,7 +15,7 @@ store.subscribe(() => {
 
 const blog1 = store.dispatch(addBlogAction({title:"blog title 1", description: "blog description 1", dateAdded: "blog dateAdded 1"}))
 const blog2 = store.dispatch(addBlogAction({title:"blog title 2", description: "blog description 2", dateAdded: "blog dateAdded 2"}))
-const blog3 = store.dispatch(addBlogAction({title:"blog title 3", description: "blog description 3", dateAdded: "blog dateAdded 3"}))
+store.dispatch(addBlogAction({title:"blog title 3", description: "blog description 3", dateAdded: "blog dateAdded 3"}))
 store.dispatch(removeBlogAction({id: blog1.blog.id}))
 store.dispatch(editBlogAction(blog2.blog.id, {title: "updated blog 2 title", description: "updated blog description 2", dateAdded: " updated blog 2 dateAdded"}))
 

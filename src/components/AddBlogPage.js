@@ -1,18 +1,21 @@
 import React from 'react'
 import BlogForm from './BlogForm'
-import { connect } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import {addBlogAction} from '../actions/blogAction'
 
 
-const AddBlogPage = (props) => {
+const AddBlogPage = () => {
+    const dispatch = useDispatch();
+    const navigation = useNavigate()
     return (
       <div>
           <h1> Add Blog</h1>
           <BlogForm formSubmit={(blog) => {
-            props.dispatch(addBlogAction(blog))    
-            props.history.push('/blogs')  
+            dispatch(addBlogAction(blog))    
+            navigation('/blogs')  
           }}/>
       </div>
     )
 }
-export default connect()(AddBlogPage)
+export default AddBlogPage
