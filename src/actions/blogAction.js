@@ -1,7 +1,8 @@
+//Unique id creator
 import { v4 as uuid } from 'uuid';
 
-//ACTION CREATORS
 
+//ACTION CREATORS
 export const addBlogAction = ({title="", description="", dateAdded=0})=>({
     type: "ADD_BLOG",
     blog: {
@@ -20,5 +21,5 @@ export const removeBlogAction = ({id}) => ({
 export const editBlogAction = (id, updates) => ({
     type: "EDIT_BLOG",
     id, 
-    updates
+    updates //contains multiple parameters
 })

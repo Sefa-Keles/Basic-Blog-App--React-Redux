@@ -9,10 +9,12 @@ import { addBlogAction, removeBlogAction,editBlogAction } from './actions/blogAc
 
 const store = configureStore();
 
+//Function triggered on every change in state
 store.subscribe(() => {
     console.log(store.getState())
 })
 
+//Dummy Datas
 const blog1 = store.dispatch(addBlogAction({title:"blog title 1", description: "blog description 1", dateAdded: "blog dateAdded 1"}))
 const blog2 = store.dispatch(addBlogAction({title:"blog title 2", description: "blog description 2", dateAdded: "blog dateAdded 2"}))
 store.dispatch(addBlogAction({title:"blog title 3", description: "blog description 3", dateAdded: "blog dateAdded 3"}))
@@ -21,6 +23,7 @@ store.dispatch(editBlogAction(blog2.blog.id, {title: "updated blog 2 title", des
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+    //It ensures that all the information in the Store is accessible from all the components covered by the Router.
     <Provider store={store}>
         <AppRouter/>
     </Provider>

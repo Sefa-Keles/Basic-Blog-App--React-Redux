@@ -1,5 +1,7 @@
 import React from 'react'
 
+
+//Component showing the details of the selected blog object
 const BlogDetailsItem = ({id,title,description}) => {
   return (
     <div>
